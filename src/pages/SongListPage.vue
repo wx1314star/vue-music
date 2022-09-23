@@ -83,7 +83,7 @@
     <el-dialog title="修改歌单" :visible.sync="editDialogVisible" width="400px" center>
         <!-- 编辑歌单表单 -->
         <el-form ref="editForm" :model="editForm" label-width="80px">
-            <el-form-item prop="title" label="标题" size="mini">
+            <el-form-item label="标题" size="mini">
                 <el-input v-model="editForm.title" placeholder="标题"></el-input>
             </el-form-item>
             <el-form-item label="简介" size="mini">
@@ -124,14 +124,14 @@ export default {
             registerForm: {
                 title: "",
                 introduction: "",
-                style: "",
+                style: ""
             },
             //表单编辑歌单
             editForm: {
-                id:"",
+                id: "",
                 title: "",
                 introduction: "",
-                style: "",
+                style: ""
             },
             //歌单列表
             tableData: [],
@@ -170,7 +170,7 @@ export default {
                 this.tableData = [];
                 for (let item of this.tempData) {
                     if (item.title.includes(this.search_word)) {
-                        this.tableData.push(title);
+                        this.tableData.push(item);
                     }
                 }
             }
@@ -188,10 +188,10 @@ export default {
         handleEdit(row) {
             this.editDialogVisible = true;
             this.editForm = {
-                id:row.id,
-                name: row.title,
+                id: row.id,
+                title: row.title,
                 introduction: row.introduction,
-                sytle: row.style
+                style: row.style
             };
         },
         //删除歌单按钮单击事件
@@ -206,7 +206,7 @@ export default {
                     }
                 })
                 .catch((err) => {
-                    console.log(err);
+                    //console.log(err);
                 });
         },
 
@@ -228,7 +228,7 @@ export default {
                     }
                 })
                 .catch((err) => {
-                    console.log(err);
+                    //console.log(err);
                 });
             this.centerDialogVisible = false;
         },
@@ -250,7 +250,7 @@ export default {
                     }
                 })
                 .catch((err) => {
-                    console.log(err);
+                    //console.log(err);
                 });
             this.editDialogVisible = false;
         },
@@ -266,20 +266,19 @@ export default {
                     this.currentPage = 1;
                 })
                 .catch((err) => {
-                    console.log(err);
+                    //console.log(err);
                 });
         },
         //更新上传图片
         uploadUrl(id) {
-            return `${this.$store.state.HOST}/songList/updatesongListPic?id=${id}`;
+            return `${this.$store.state.HOST}/songList/updateSongListPic?id=${id}`;
         },
         //跳转到歌曲管理
-        songEdit(id, name) {
+        songEdit(id) {
             this.$router.push({
-                path: `/Song`,
+                path: `/ListSong`,
                 query: {
-                    id,
-                    name
+                    id
                 }
             });
         },
