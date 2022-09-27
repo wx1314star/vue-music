@@ -27,7 +27,7 @@ export const getSongBySinger = id =>
 
 //根据歌曲ID查询歌曲
 export const getSongBySonger = id =>
-  get(`song/${id}`);
+  get(`song/id=${id}`);
 
 //根据歌曲名获取歌曲对象
 export const getSongBySongName = name =>
@@ -59,3 +59,16 @@ export const listSongDetail = (id) => get(`listSong/getSongBySongListId?songList
 export const addListSong = params => post(`listSong/add`, params);
 //删除歌曲
 export const deleteListSong = id => del(`listSong/delete?id=${id}`);
+
+//用户相关
+//查询所有用户
+export const getConsumerAll = () => get(`consumer/findAll`);
+
+//添加用户
+export const setConsumer = params => post(`consumer/add`, params);
+
+//修改用户
+export const updateConsumer = params => put(`consumer/update`, params);
+
+//删除用户
+export const deleteConsumer = id => del(`consumer/delete?id=${id}`);

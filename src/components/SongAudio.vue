@@ -27,7 +27,15 @@ export default {
         //获取链接后准备播放
         startPlay() {
             let player = document.querySelector("#player");
-            player.play();
+            //player.load();
+            let playPromise = player.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        playPromise.play()
+                    }).catch((err) => {
+                        console.log(err);
+                    })
+                }
         },
         //播放完成之后触发
         ended() {
@@ -37,8 +45,16 @@ export default {
         //开始，暂停
         togglePlay() {
             let player = document.querySelector("#player");
+            //player.load();
             if (this.isPlay) {
-                player.play();
+                let playPromise = player.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        playPromise.play()
+                    }).catch((err) => {
+                        console.log(err);
+                    })
+                }
             } else {
                 player.pause();
             }

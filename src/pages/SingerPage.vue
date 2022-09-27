@@ -145,6 +145,7 @@
             style="width: 100%"
             type="date"
             placeholder="选择日期"
+            placement="bottom-start"
           >
           </el-date-picker>
         </el-form-item>
@@ -202,6 +203,7 @@
             style="width: 100%"
             type="date"
             placeholder="选择日期"
+            placement="bottom-start"
           >
           </el-date-picker>
         </el-form-item>
