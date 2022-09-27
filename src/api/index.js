@@ -8,6 +8,9 @@ export const getLoginStatus = params => post(`admin`, params);
 //查询歌手
 export const getSingerAll = () => get(`singer/findAll`);
 
+//获得所有歌手数量
+export const getSingerCount = () => get(`singer/count`);
+
 //添加歌手
 export const setSinger = params => post(`singer/add`, params);
 
@@ -20,6 +23,9 @@ export const deleteSinger = id => del(`singer/delete?id=${id}`);
 /*歌曲相关 */
 //查询歌曲
 export const getSongAll = () => get(`song/findAll`);
+
+//获得歌曲总条数
+export const getSongCount = () => get(`song/count`);
 
 //根据歌手查询歌曲
 export const getSongBySinger = id =>
@@ -45,6 +51,9 @@ export const setSongList = params => post(`songList/addSongList`, params);
 
 //查询歌单
 export const getSongListAll = () => get(`songList/findAll`);
+
+//查询歌单总纪录数
+export const getSongListCount = () => get(`songList/count`);
 
 //修改歌单
 export const updateSongList = params => put(`songList/updateSongList`, params);
